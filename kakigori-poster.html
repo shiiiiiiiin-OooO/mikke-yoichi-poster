@@ -1,271 +1,304 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ミッケ かき氷プロジェクト A1ポスター (4辺ぼかし・最終版)</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700;900&family=Yomogi&display=swap" rel="stylesheet">
-<style>
-    :root {
-        --mk-orange: #FF6B00;
-        --mk-yellow: #FFCC00;
-        --mk-green: #34C759;
-        --mk-bg-night: #000F2E; 
-        --mk-text-light: #FFFFFF;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>繝溘ャ繧ｱ螟懷ｸゅ・繧ｹ繧ｿ繝ｼ v3</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 100%; min-height: 100vh; background: #04030C; }
+    body { display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 20px; }
+
+    #poster-outer { transform-origin: top left; flex-shrink: 0; }
+
+    #poster {
+      width: 850px; height: 1203px;
+      position: relative; overflow: hidden;
+      font-family: 'M PLUS Rounded 1c', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+    }
+    #poster::after {
+      content: ''; position: absolute; inset: 18px;
+      border: 1px solid rgba(232,69,44,0.20);
+      pointer-events: none; z-index: 60;
     }
 
-    @page {
-        size: 594mm 841mm;
-        margin: 0;
+    /* 笏笏 BACKGROUND 笏笏 */
+    .bg-base {
+      position: absolute; inset: 0;
+      background: linear-gradient(170deg, #07061A 0%, #0B091F 28%, #0D0A1E 60%, #0F0B1A 100%);
+    }
+    .bg-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.013) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.013) 1px, transparent 1px);
+      background-size: 44px 44px; pointer-events: none;
+    }
+    .bg-horizon {
+      position: absolute; bottom: -80px; left: 50%; transform: translateX(-50%);
+      width: 900px; height: 520px;
+      background: radial-gradient(ellipse, rgba(210,55,18,0.15) 0%, rgba(200,80,20,0.07) 42%, transparent 72%);
+      pointer-events: none;
+    }
+    #stars { position: absolute; inset: 0; pointer-events: none; }
+
+    /* 笏笏 縺九″豌ｷ 繝・さ繝ｬ繝ｼ繧ｷ繝ｧ繝ｳ・亥承荳奇ｼ・笏笏 */
+    .kakigori-deco {
+      position: absolute;
+      top: 36px;
+      right: 48px;
+      width: 210px;
+      z-index: 7;
+      pointer-events: none;
+      opacity: 0.92;
+      filter: drop-shadow(0 6px 20px rgba(0,0,0,0.5));
+    }
+    /* 逕ｻ蜒上′譚･繧九∪縺ｧ縺ｮ繝励Ξ繝ｼ繧ｹ繝帙Ν繝繝ｼ陦ｨ遉ｺ */
+    .kakigori-deco-placeholder {
+      position: absolute;
+      top: 36px; right: 48px;
+      width: 210px; height: 210px;
+      z-index: 7; pointer-events: none;
+      border: 1px dashed rgba(245,237,216,0.12);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .kakigori-deco-placeholder span {
+      font-size: 13px; color: rgba(245,237,216,0.22);
+      letter-spacing: 0.08em;
     }
 
-    body {
-        margin: 0;
-        padding: 0;
-        background-color: #cccccc; 
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
+    /* 笏笏 CONTENT 笏笏 */
+    .content {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center;
+      padding: 40px 62px 32px;
+      z-index: 10;
     }
 
-    .poster {
-        width: 594mm;
-        height: 841mm;
-        background-color: var(--mk-bg-night);
-        background-image: linear-gradient(180deg, var(--mk-bg-night) 0%, #001A4F 60%, rgba(255, 107, 0, 0.1) 100%);
-        box-sizing: border-box;
-        padding: 40mm; 
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        overflow: hidden;
-        position: relative;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.2); 
+    /* 笏笏 PROJECT HEADING 笏笏 */
+    .project-heading {
+      font-size: 28px; font-weight: 900;
+      letter-spacing: 0.12em;
+      color: rgba(232, 69, 44, 0.88);
+      margin-bottom: 14px;
+      flex-shrink: 0;
+      text-align: center;
     }
 
-    .logo {
-        position: absolute;
-        top: 30mm;
-        left: 40mm;
-        font-family: 'Yomogi', cursive;
-        font-size: 18mm; 
-        color: var(--mk-orange);
-        font-weight: bold;
-        text-shadow: 0 0 10px #FFFFFF;
-        z-index: 20;
+    /* 笏笏 LOGO 笏笏 */
+    .logo-wrap {
+      margin-bottom: 24px;
+      flex-shrink: 0;
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo-wrap img {
+      width: 160px;
+      height: auto;
+      display: block;
     }
 
-    .zone-catch {
-        flex: 1.0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        position: relative;
-        z-index: 5;
-        padding-top: 20mm; 
+    /* 笏笏 CATCHPHRASE 笏笏 */
+    .catchphrase { margin-bottom: 28px; flex-shrink: 0; text-align: center; }
+    .catch {
+      display: block;
+      font-size: 100px; font-weight: 900;
+      letter-spacing: -0.02em; line-height: 1.12;
+      color: #F5EDD8;
+      text-align: center;
     }
-    .catch-title {
-        font-family: 'Yomogi', cursive;
-        font-size: 28mm; 
-        line-height: 1.3;
-        color: var(--mk-orange);
-        margin: 0 0 15mm 0;
-        text-shadow: 0 0 15px #FFFFFF, 0 0 5px #FFFFFF;
-        z-index: 10;
+    .catch-accent-row {
+      display: flex;
+      justify-content: center;
     }
-    
-    .image-container {
-        width: 100%;
-        max-height: 220mm;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
+    .catch.accent {
+      display: inline-block;
+      color: #F5EDD8;
+      background: rgba(232, 69, 44, 0.38);
+      padding: 4px 22px 10px;
+      border-radius: 10px;
     }
 
-    /* ★修正点：4辺の端っこ（5%）だけをうっすら透過させる魔法★ */
-    img.kakigori-main {
-        width: auto; 
-        max-width: 100%;
-        height: 100%;
-        max-height: 220mm;
-        object-fit: cover;
-        border-radius: 10px; /* 角自体も少し丸めておく */
-        
-        /* 左右と上下のグラデーションを掛け合わせて、フチだけを透明にする */
-        -webkit-mask-image: 
-            linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%),
-            linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%);
-        -webkit-mask-composite: source-in;
-        mask-composite: intersect;
+    /* 笏笏 DIVIDER 笏笏 */
+    .divider {
+      display: flex; align-items: center; gap: 14px;
+      width: 100%; flex-shrink: 0;
+    }
+    .divider.top    { margin-bottom: 22px; }
+    .divider.bottom { margin-bottom: 14px; }
+    .div-line    { flex: 1; height: 1px; background: rgba(245,237,216,0.14); }
+    .div-diamond { width: 6px; height: 6px; background: rgba(232,69,44,0.6); transform: rotate(45deg); flex-shrink: 0; }
+
+    /* 笏笏 BODY COPY 笏笏 */
+    .body {
+      font-size: 30px; font-weight: 700;
+      line-height: 1.90; color: rgba(245,237,216,0.78);
+      flex-shrink: 0; width: 100%;
+      text-align: center;
+    }
+    .body p { margin-bottom: 22px; }
+    .body p:last-child { margin-bottom: 0; }
+
+    .hi {
+      background: rgba(232, 69, 44, 0.26);
+      color: #F8EEE0;
+      padding: 2px 7px 3px; border-radius: 4px;
+      font-weight: 900;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
     }
 
-    .zone-desc {
-        flex: 0.7;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background: rgba(255, 204, 0, 0.05);
-        border: 4px dashed var(--mk-orange);
-        border-radius: 20px;
-        padding: 25mm 30mm; 
-        margin: 10mm 0;
-        z-index: 4;
-    }
-    .desc-text {
-        font-family: 'Noto Sans JP', sans-serif;
-        font-weight: 900;
-        font-size: 15mm; 
-        line-height: 1.5;
-        color: var(--mk-text-light); 
-        text-align: center;
-        margin: 0;
-    }
-    .highlight {
-        color: var(--mk-yellow); 
-        border-bottom: 6px solid var(--mk-orange); 
+    .spacer { flex: 1; min-height: 4px; }
+
+    /* 笏笏 BOTTOM SECTION 笏笏 */
+    .bottom-section {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px; flex-shrink: 0;
     }
 
-    .zone-message {
-        flex: 1.0;
-        padding: 12mm 16mm;
-        margin: 6mm 0;
-        border-left: 5px solid var(--mk-orange);
-        background: rgba(255, 107, 0, 0.05);
-        z-index: 4;
+    .qr-col {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 12px; flex-shrink: 0;
     }
-    .message-title {
-        font-family: 'Noto Sans JP', sans-serif;
-        font-weight: 700;
-        font-size: 7mm;
-        color: var(--mk-yellow);
-        margin: 0 0 6mm 0;
-        letter-spacing: 0.08em;
+    .qr-box {
+      width: 150px; height: 150px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      background: #ffffff;
+      padding: 8px;
     }
-    .message-body {
-        font-family: 'Noto Sans JP', sans-serif;
-        font-weight: 400;
-        font-size: 5.8mm;
-        line-height: 2.0;
-        color: rgba(255, 255, 255, 0.82);
-        margin: 0;
+    .qr-box img, .qr-box canvas { display: block; }
+    .qr-main-label {
+      font-size: 26px; font-weight: 900;
+      letter-spacing: 0.10em;
+      color: rgba(245,237,216,0.90);
     }
-    .message-sign {
-        font-family: 'Yomogi', cursive;
-        font-size: 6.5mm;
-        color: var(--mk-orange);
-        text-align: right;
-        margin-top: 7mm;
+    .qr-url {
+      font-size: 15px; font-weight: 700;
+      letter-spacing: 0.07em;
+      color: rgba(245,237,216,0.45);
     }
-
-    .zone-info {
-        flex: 0.8;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        border-top: 5px dashed var(--mk-orange);
-        padding-top: 20mm;
-        color: var(--mk-text-light);
-        z-index: 3;
-    }
-    .info-details {
-        font-family: 'Noto Sans JP', sans-serif;
-        font-weight: 700;
-        font-size: 14mm; 
-        line-height: 1.6;
-        flex: 1.2; 
-    }
-    .info-details span {
-        display: inline-block;
-        background-color: var(--mk-orange);
-        color: white;
-        padding: 3mm 6mm;
-        border-radius: 8px;
-        margin-right: 6mm;
-        font-size: 12mm;
-    }
-    
-    .cta-area {
-        display: flex;
-        flex-direction: column;
-        align-items: center; 
-        flex: 0.8; 
-    }
-    .cta-text {
-        font-family: 'Noto Sans JP', sans-serif;
-        font-weight: 900;
-        font-size: 10mm;
-        color: var(--mk-text-light);
-        margin-bottom: 8mm;
-        text-align: center;
-    }
-    .qr-placeholder {
-        width: 70mm; 
-        height: 70mm;
-        background-color: white;
-        border: 5px solid var(--mk-orange); 
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-family: 'Noto Sans JP', sans-serif;
-        font-weight: 700;
-        font-size: 9mm;
-        color: #999;
-    }
-
-    @media print {
-        body { background-color: transparent; }
-        .poster { box-shadow: none; }
-    }
-</style>
+  </style>
 </head>
 <body>
 
-<div class="poster">
-    <div class="logo">ミッケ夜市プロジェクト</div>
-    <div class="zone-catch">
-        <h1 class="catch-title">店長は小学生。<br>相棒はAI。</h1>
-        <div class="image-container">
-            <img src="Gemini_Generated_Image_2nzzx72nzzx72nzz.png" alt="ミッケのかき氷" class="kakigori-main">
+  <div id="poster-outer">
+    <div id="poster">
+
+      <div class="bg-base"></div>
+      <div class="bg-grid"></div>
+      <div class="bg-horizon"></div>
+      <canvas id="stars"></canvas>
+
+
+      <div class="content">
+
+        <div class="project-heading">繝溘ャ繧ｱ螟懷ｸゅ・繝ｭ繧ｸ繧ｧ繧ｯ繝・/div>
+
+        <div class="logo-wrap">
+          <img src="assets/mikke-logo-yoichi.jpg" alt="縺ｿ縺｣縺・>
         </div>
-    </div>
-    <div class="zone-desc">
-        <p class="desc-text">
-            小中学生が<br>
-            AIを相棒にして、<br>
-            <span class="highlight">ゼロから立ち上げた</span><br>
-            かき氷のお店。<br><br>
-            メニューも、看板も、<br>
-            ぜんぶ自分たちで<br>考えました。<br>
-            ぼくらの「本気」、<br>
-            食べてみてください！
-        </p>
-    </div>
-    <div class="zone-message">
-        <p class="message-title">このお店が生まれたわけ</p>
-        <p class="message-body">
-            「AIの使い方」を教えるより、先に伝えたいことがある。<br>自分は何がしたいのか。何が好きで、何が変だと思うのか。<br>——そこからしか、本当のものは生まれないから。<br><br>
-            この夜市で子どもたちは、ゼロから考えました。「どんな味を出そうか」「値段は？」「来てくれた人に何を伝えたい？」<br>——迷ったらAIに聞いて、話し合って、また考えた。<br><br>
-            AIに仕事を奪われる未来を恐れるのではなく、道具として自分の手で<br>
-            使いこなす人に育ってほしい。<br>このかき氷が、その一歩になりますように。
-        </p>
-    </div>
-    <div class="zone-info">
-        <div class="info-details">
-            <p><span>場所</span> 土曜夜市会場 〇〇ブース</p>
+
+        <div class="catchphrase">
+          <span class="catch">蠎鈴聞縺ｯ蟆丞ｭｦ逕溘・/span>
+          <div class="catch-accent-row">
+            <span class="catch accent">逶ｸ譽偵・AI縲・/span>
+          </div>
         </div>
-        <div class="cta-area">
-            <div class="cta-text">ミッケの裏側は<br>こちら！ ⬇</div>
-            <div class="qr-placeholder">QRコード<br>差し替え</div>
+
+        <div class="divider top">
+          <div class="div-line"></div>
+          <div class="div-diamond"></div>
+          <div class="div-line"></div>
         </div>
+
+        <div class="body">
+          <p>繝溘ャ繧ｱ縺ｯ縲・span class="hi">蟆丈ｸｭ蟄ｦ逕溘′蟇ｾ雎｡縺ｮ謨呵ご繝励Ο繧ｰ繝ｩ繝</span>縲・br>
+             AI繧帝％蜈ｷ縺ｨ縺励※菴ｿ縺・％縺ｪ縺励※縲・br>
+             閾ｪ蛻・・縲後ｄ繧翫◆縺・％縺ｨ縲阪ｒ蠖｢縺ｫ縺吶ｋ蝣ｴ謇縲・/p>
+          <p>縺薙・縺九″豌ｷ螻九ｂ縲∝ｭ舌←繧ゅ◆縺｡縺・br>
+             縲御ｽ輔ｒ螢ｲ繧阪≧縺九阪後←繧薙↑蜻ｳ縺ｫ縺励ｈ縺・阪→<br>
+             繧ｼ繝ｭ縺九ｉ閠・∴縲・span class="hi">AI縺ｨ荳邱偵↓菴懊ｊ荳翫￡縺溘♀蠎・/span>縺ｧ縺吶・/p>
+        </div>
+
+        <div class="spacer"></div>
+
+        <div class="divider bottom">
+          <div class="div-line"></div>
+          <div class="div-diamond"></div>
+          <div class="div-line"></div>
+        </div>
+
+        <div class="bottom-section">
+
+          <div class="qr-col">
+            <div class="qr-box">
+              <div id="qr-container"></div>
+            </div>
+            <span class="qr-main-label">繝溘ャ繧ｱ縺ｫ縺､縺・※縺ｮ隧ｳ縺励＞諠・ｱ縺ｯ縺薙■繧・/span>
+            <span class="qr-url"></span>
+          </div>
+
+        </div>
+
+      </div>
     </div>
-</div>
+  </div>
+
+  <script>
+    /* 笏笏 Stars 笏笏 */
+    (function(){
+      var cv=document.getElementById('stars'),W=850,H=1203;
+      cv.width=W; cv.height=H;
+      var ctx=cv.getContext('2d'),seed=42;
+      function rand(){seed=(seed*16807)%2147483647;return(seed-1)/2147483646;}
+      for(var i=0;i<270;i++){
+        var x=rand()*W,y=rand()*H*0.75,big=rand()<0.1;
+        var r=big?rand()*1.3+0.9:rand()*0.65+0.15,op=rand()*0.52+0.08;
+        ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);
+        ctx.fillStyle='rgba(245,238,218,'+op+')';ctx.fill();
+      }
+    })();
+
+    /* 笏笏 QR Code 笏笏 */
+    (function(){
+      new QRCode(document.getElementById('qr-container'), {
+        text: 'https://shiiiiiiiin-oooo.github.io/mikke-lp/',
+        width: 130,
+        height: 130,
+        colorDark: '#1a1829',
+        colorLight: '#ffffff',
+        correctLevel: QRCode.CorrectLevel.M
+      });
+    })();
+
+    /* 笏笏 Scale 笏笏 */
+    (function(){
+      var PW=850,PH=1203,outer=document.getElementById('poster-outer');
+      function scale(){
+        var vw=window.innerWidth-40,vh=window.innerHeight-40,s=Math.min(vw/PW,vh/PH);
+        outer.style.transform='scale('+s+')'; outer.style.transformOrigin='top left';
+        outer.style.width=(PW*s)+'px'; outer.style.height=(PH*s)+'px';
+        outer.style.marginLeft=Math.max(0,(window.innerWidth-PW*s)/2-20)+'px';
+        outer.style.marginTop=Math.max(0,(window.innerHeight-PH*s)/2-20)+'px';
+      }
+      scale(); window.addEventListener('resize',scale);
+    })();
+  </script>
 
 </body>
 </html>
