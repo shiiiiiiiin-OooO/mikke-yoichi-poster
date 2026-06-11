@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>繝溘ャ繧ｱ螟懷ｸゅ・繧ｹ繧ｿ繝ｼ v3</title>
+  <title>ミッケ夜市ポスター v3</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800;900&display=swap" rel="stylesheet">
@@ -26,7 +26,6 @@
       pointer-events: none; z-index: 60;
     }
 
-    /* 笏笏 BACKGROUND 笏笏 */
     .bg-base {
       position: absolute; inset: 0;
       background: linear-gradient(170deg, #07061A 0%, #0B091F 28%, #0D0A1E 60%, #0F0B1A 100%);
@@ -46,33 +45,6 @@
     }
     #stars { position: absolute; inset: 0; pointer-events: none; }
 
-    /* 笏笏 縺九″豌ｷ 繝・さ繝ｬ繝ｼ繧ｷ繝ｧ繝ｳ・亥承荳奇ｼ・笏笏 */
-    .kakigori-deco {
-      position: absolute;
-      top: 36px;
-      right: 48px;
-      width: 210px;
-      z-index: 7;
-      pointer-events: none;
-      opacity: 0.92;
-      filter: drop-shadow(0 6px 20px rgba(0,0,0,0.5));
-    }
-    /* 逕ｻ蜒上′譚･繧九∪縺ｧ縺ｮ繝励Ξ繝ｼ繧ｹ繝帙Ν繝繝ｼ陦ｨ遉ｺ */
-    .kakigori-deco-placeholder {
-      position: absolute;
-      top: 36px; right: 48px;
-      width: 210px; height: 210px;
-      z-index: 7; pointer-events: none;
-      border: 1px dashed rgba(245,237,216,0.12);
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .kakigori-deco-placeholder span {
-      font-size: 13px; color: rgba(245,237,216,0.22);
-      letter-spacing: 0.08em;
-    }
-
-    /* 笏笏 CONTENT 笏笏 */
     .content {
       position: absolute; inset: 0;
       display: flex; flex-direction: column;
@@ -81,7 +53,6 @@
       z-index: 10;
     }
 
-    /* 笏笏 PROJECT HEADING 笏笏 */
     .project-heading {
       font-size: 28px; font-weight: 900;
       letter-spacing: 0.12em;
@@ -91,7 +62,6 @@
       text-align: center;
     }
 
-    /* 笏笏 LOGO 笏笏 */
     .logo-wrap {
       margin-bottom: 24px;
       flex-shrink: 0;
@@ -108,7 +78,6 @@
       display: block;
     }
 
-    /* 笏笏 CATCHPHRASE 笏笏 */
     .catchphrase { margin-bottom: 28px; flex-shrink: 0; text-align: center; }
     .catch {
       display: block;
@@ -129,7 +98,6 @@
       border-radius: 10px;
     }
 
-    /* 笏笏 DIVIDER 笏笏 */
     .divider {
       display: flex; align-items: center; gap: 14px;
       width: 100%; flex-shrink: 0;
@@ -139,7 +107,6 @@
     .div-line    { flex: 1; height: 1px; background: rgba(245,237,216,0.14); }
     .div-diamond { width: 6px; height: 6px; background: rgba(232,69,44,0.6); transform: rotate(45deg); flex-shrink: 0; }
 
-    /* 笏笏 BODY COPY 笏笏 */
     .body {
       font-size: 30px; font-weight: 700;
       line-height: 1.90; color: rgba(245,237,216,0.78);
@@ -160,7 +127,6 @@
 
     .spacer { flex: 1; min-height: 4px; }
 
-    /* 笏笏 BOTTOM SECTION 笏笏 */
     .bottom-section {
       width: 100%;
       display: flex;
@@ -204,19 +170,18 @@
       <div class="bg-horizon"></div>
       <canvas id="stars"></canvas>
 
-
       <div class="content">
 
-        <div class="project-heading">繝溘ャ繧ｱ螟懷ｸゅ・繝ｭ繧ｸ繧ｧ繧ｯ繝・/div>
+        <div class="project-heading">ミッケ夜市プロジェクト</div>
 
         <div class="logo-wrap">
-          <img src="assets/mikke-logo-yoichi.jpg" alt="縺ｿ縺｣縺・>
+          <img src="assets/mikke-logo-yoichi.jpg" alt="みっけ">
         </div>
 
         <div class="catchphrase">
-          <span class="catch">蠎鈴聞縺ｯ蟆丞ｭｦ逕溘・/span>
+          <span class="catch">店長は小学生。</span>
           <div class="catch-accent-row">
-            <span class="catch accent">逶ｸ譽偵・AI縲・/span>
+            <span class="catch accent">相棒はAI。</span>
           </div>
         </div>
 
@@ -227,12 +192,12 @@
         </div>
 
         <div class="body">
-          <p>繝溘ャ繧ｱ縺ｯ縲・span class="hi">蟆丈ｸｭ蟄ｦ逕溘′蟇ｾ雎｡縺ｮ謨呵ご繝励Ο繧ｰ繝ｩ繝</span>縲・br>
-             AI繧帝％蜈ｷ縺ｨ縺励※菴ｿ縺・％縺ｪ縺励※縲・br>
-             閾ｪ蛻・・縲後ｄ繧翫◆縺・％縺ｨ縲阪ｒ蠖｢縺ｫ縺吶ｋ蝣ｴ謇縲・/p>
-          <p>縺薙・縺九″豌ｷ螻九ｂ縲∝ｭ舌←繧ゅ◆縺｡縺・br>
-             縲御ｽ輔ｒ螢ｲ繧阪≧縺九阪後←繧薙↑蜻ｳ縺ｫ縺励ｈ縺・阪→<br>
-             繧ｼ繝ｭ縺九ｉ閠・∴縲・span class="hi">AI縺ｨ荳邱偵↓菴懊ｊ荳翫￡縺溘♀蠎・/span>縺ｧ縺吶・/p>
+          <p>ミッケは、<span class="hi">小中学生が対象の教育プログラム</span>。<br>
+             AIを道具として使いこなして、<br>
+             自分の「やりたいこと」を形にする場所。</p>
+          <p>このかき氷屋も、子どもたちが<br>
+             「何を売ろうか」「どんな味にしよう」と<br>
+             ゼロから考え、<span class="hi">AIと一緒に作り上げたお店</span>です。</p>
         </div>
 
         <div class="spacer"></div>
@@ -244,15 +209,13 @@
         </div>
 
         <div class="bottom-section">
-
           <div class="qr-col">
             <div class="qr-box">
               <div id="qr-container"></div>
             </div>
-            <span class="qr-main-label">繝溘ャ繧ｱ縺ｫ縺､縺・※縺ｮ隧ｳ縺励＞諠・ｱ縺ｯ縺薙■繧・/span>
-            <span class="qr-url"></span>
+            <span class="qr-main-label">ミッケはこちら</span>
+            <span class="qr-url">詳しい情報はこちらから</span>
           </div>
-
         </div>
 
       </div>
@@ -260,7 +223,6 @@
   </div>
 
   <script>
-    /* 笏笏 Stars 笏笏 */
     (function(){
       var cv=document.getElementById('stars'),W=850,H=1203;
       cv.width=W; cv.height=H;
@@ -274,7 +236,6 @@
       }
     })();
 
-    /* 笏笏 QR Code 笏笏 */
     (function(){
       new QRCode(document.getElementById('qr-container'), {
         text: 'https://shiiiiiiiin-oooo.github.io/mikke-lp/',
@@ -286,7 +247,6 @@
       });
     })();
 
-    /* 笏笏 Scale 笏笏 */
     (function(){
       var PW=850,PH=1203,outer=document.getElementById('poster-outer');
       function scale(){
