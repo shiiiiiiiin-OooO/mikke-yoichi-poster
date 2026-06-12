@@ -147,7 +147,7 @@
       background: #ffffff;
       padding: 8px;
     }
-    .qr-box img, .qr-box canvas { display: block; }
+    .qr-box img, .qr-box canvas { display: block; width: 130px !important; height: 130px !important; }
     .qr-main-label {
       font-size: 26px; font-weight: 900;
       letter-spacing: 0.10em;
@@ -223,9 +223,11 @@
 
   <script>
     (function(){
-      var cv=document.getElementById('stars'),W=850,H=1203;
-      cv.width=W; cv.height=H;
+      var cv=document.getElementById('stars'),W=850,H=1203,SC=3;
+      cv.width=W*SC; cv.height=H*SC;
+      cv.style.width=W+'px'; cv.style.height=H+'px';
       var ctx=cv.getContext('2d'),seed=42;
+      ctx.scale(SC,SC);
       function rand(){seed=(seed*16807)%2147483647;return(seed-1)/2147483646;}
       for(var i=0;i<270;i++){
         var x=rand()*W,y=rand()*H*0.75,big=rand()<0.1;
@@ -238,8 +240,8 @@
     (function(){
       new QRCode(document.getElementById('qr-container'), {
         text: 'https://shiiiiiiiin-oooo.github.io/mikke-lp/',
-        width: 130,
-        height: 130,
+        width: 300,
+        height: 300,
         colorDark: '#1a1829',
         colorLight: '#ffffff',
         correctLevel: QRCode.CorrectLevel.M
